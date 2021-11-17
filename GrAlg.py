@@ -11,14 +11,14 @@ class Example(QMainWindow):
         super().__init__()
         uic.loadUi('crg.ui', self)
         self.Grugg.clicked.connect(self.draw)
-        # self.col = [i for i in range(256)]
+        self.col = [i for i in range(256)]
 
     def paintEvent(self, event):
         qp = QPainter()
         qp.begin(self)
-        # r, g, b = sample(self.col, 3)
+        r, g, b = sample(self.col, 3)
         rad = randint(1, 100)
-        qp.setBrush(QColor(255, 255, 0))
+        qp.setBrush(QColor(r, g, b))
         qp.drawEllipse(150 - rad // 2, 150 - rad // 2, rad, rad)
         qp.end()
 
